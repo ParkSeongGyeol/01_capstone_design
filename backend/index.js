@@ -9,18 +9,20 @@ app.use(cors());
 app.use(express.json());
 
 // 데이터베이스 연결 설정
+require('dotenv').config();
+
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'healthuser',
-  password: 'healthpassword',
-  database: 'healthcare',
+  host: process.env.DB_HOST || 'mariadb',
+  user: process.env.DB_USER || 'healthuser',
+  password: process.env.DB_PASSWORD || 'healthpassword',
+  database: process.env.DB_NAME || 'healthcare',
 });
 
 // 데이터베이스 연결
 db.connect((err) => {
   if (err) {
     console.error('데이터베이스 연결 실패:', err);
-    return;
+    process.exit(1);
   }
   console.log('데이터베이스 연결 성공');
 });
