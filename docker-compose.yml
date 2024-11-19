@@ -3,7 +3,7 @@ services:
     image: mariadb:latest
     container_name: mariadb
     environment:
-      - MARIADB_ROOT_PASSWORD=yourpassword
+      - MARIADB_ROOT_PASSWORD=p$p1590753
       - MARIADB_DATABASE=healthcare
       - MARIADB_USER=healthuser
       - MARIADB_PASSWORD=healthpassword
