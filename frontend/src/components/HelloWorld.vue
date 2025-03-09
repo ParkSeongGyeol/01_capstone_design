@@ -1,33 +1,44 @@
+<script setup>
+defineProps({
+  msg: {
+    type: String,
+    required: true,
+  },
+})
+</script>
+
 <template>
-  <div class="hello">
-    <h1>{{ message }}</h1>
+  <div class="greetings">
+    <h1 class="green">{{ msg }}</h1>
+    <h3>
+      You’ve successfully created a project with
+      <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
+      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
+    </h3>
   </div>
 </template>
 
-<script>
-export default {
-  name: "HelloWorld",
-  data() {
-    return {
-      message: "메시지를 불러오는 중...",
-    };
-  },
-  mounted() {
-    fetch(`/api/message`)
-      .then((response) => response.json())
-      .then((data) => {
-        this.message = data.message;
-      })
-      .catch((error) => {
-        console.error("API 호출 에러:", error);
-        this.message = "메시지를 불러오는데 실패했습니다.";
-      });
-  },
-};
-</script>
-
 <style scoped>
 h1 {
-  color: #2c3e50;
+  font-weight: 500;
+  font-size: 2.6rem;
+  position: relative;
+  top: -10px;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+.greetings h1,
+.greetings h3 {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .greetings h1,
+  .greetings h3 {
+    text-align: left;
+  }
 }
 </style>
