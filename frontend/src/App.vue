@@ -10,6 +10,14 @@ import TheWelcome from './components/TheWelcome.vue'
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
     </div>
+
+    <div>
+      <nav>
+        <router-link to="/">홈</router-link> | <router-link to="/chatbot">챗봇</router-link> |
+        <router-link to="/food">음식 업로드</router-link>
+      </nav>
+      <router-view />
+    </div>
   </header>
 
   <main>
@@ -18,6 +26,18 @@ import TheWelcome from './components/TheWelcome.vue'
 </template>
 
 <style scoped>
+nav {
+  background: #42b983;
+  padding: 10px;
+  text-align: center;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
 header {
   line-height: 1.5;
 }
