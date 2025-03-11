@@ -28,12 +28,9 @@ const sendMessage = async () => {
 
   try {
     // 백엔드 API 호출
-    const response = await axios.post(
-      'https://signcare-ags6f7jgl-john-parks-projects-b98b1c70.vercel.app',
-      {
-        message: message.value,
-      },
-    )
+    const response = await axios.post('01capstonedesign-production.up.railway.app', {
+      message: message.value,
+    })
 
     chatHistory.value.push('챗봇: ' + response.data.response)
   } catch (error) {
