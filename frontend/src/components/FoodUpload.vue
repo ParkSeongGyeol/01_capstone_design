@@ -27,9 +27,13 @@ const uploadImage = async () => {
   formData.append('file', selectedFile.value)
 
   try {
-    const response = await axios.post('http://localhost:5000/api/upload', formData, {
-      headers: { 'Content-Type': 'multipart/form-data' },
-    })
+    const response = await axios.post(
+      'https://signcare-ags6f7jgl-john-parks-projects-b98b1c70.vercel.app',
+      formData,
+      {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      },
+    )
     uploadMessage.value = response.data.message
     alert(response.data.message)
   } catch (error) {
