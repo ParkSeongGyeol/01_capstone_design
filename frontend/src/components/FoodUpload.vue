@@ -2,6 +2,7 @@
   <div>
     <input type="file" @change="handleFileUpload" />
     <button @click="uploadImage">업로드</button>
+    <p v-if="uploadMessage">{{ uploadMessage }}</p>
   </div>
 </template>
 
@@ -10,6 +11,7 @@ import { ref } from 'vue'
 import axios from 'axios'
 
 const selectedFile = ref(null)
+const uploadMessage = ref('')
 
 const handleFileUpload = (event) => {
   selectedFile.value = event.target.files[0]
@@ -28,6 +30,7 @@ const uploadImage = async () => {
     const response = await axios.post('http://localhost:5000/api/upload', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     })
+    uploadMessage.value = response.data.message
     alert(response.data.message)
   } catch (error) {
     console.error('업로드 오류:', error)
