@@ -14,7 +14,8 @@ const uploadDir = process.env.UPLOAD_DIR || "uploads";
 
 // 📌 CORS 설정 (배포된 프론트엔드만 허용)
 const allowedOrigins = [
-  "https://signcare-ags6f7jgl-john-parks-projects-b98b1c70.vercel.app", // 배포된 프론트엔드 URL
+  "https://signcare-vue.vercel.app/", // 도메인
+  "https://signcare-ags6f7jgl-john-parks-projects-b98b1c70.vercel.app", // 배포된 프론트엔드 URL(임시)
   "http://localhost:5173", // 로컬 개발 환경
 ];
 
