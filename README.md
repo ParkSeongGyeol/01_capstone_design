@@ -1,6 +1,3 @@
-**📄 `README.md`**
-
-```md
 # 🚀 SignCare - 당뇨 환자를 위한 헬스케어 챗봇
 
 ## 📌 프로젝트 개요
@@ -33,8 +30,8 @@ Vue.js 기반 웹 애플리케이션으로, PWA(Progressive Web App)를 지원�
 ---
 
 ## 📂 프로젝트 구조
-```
 
+```
 signcare/
 ├── backend/ # Express.js 백엔드
 │ ├── server.js # API 서버 (챗봇 & 파일 업로드)
@@ -53,8 +50,7 @@ signcare/
 │ ├── main.js # Vue 초기화
 │ ├── package.json # 프론트엔드 설정
 │ ├── vite.config.js # PWA 설정 포함
-
-````
+```
 
 ---
 
@@ -154,8 +150,3 @@ POST /api/upload
 - **기획 & 모델 학습**: 황수지
 
 🎯 **이 프로젝트는 캡스톤디자인 졸업 작품으로 개발되었습니다!**
-
-```
-
----
-```
