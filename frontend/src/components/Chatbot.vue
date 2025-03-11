@@ -10,14 +10,24 @@
 
 <script setup>
 import { ref } from 'vue'
+import axios from 'axios'
 
-const message = ref('') // 사용자가 입력한 메시지
-const chatHistory = ref([]) // 대화 기록을 저장하는 배열
+const message = ref('')
+const chatHistory = ref([])
 
-const sendMessage = () => {
-  if (!message.value) return // 메시지가 비어 있으면 실행 안 함
-  chatHistory.value.push('나: ' + message.value) // 사용자의 메시지를 기록
-  chatHistory.value.push('챗봇: ' + message.value + '에 대한 답변입니다.') // 간단한 챗봇 응답 추가
-  message.value = '' // 입력 필드 초기화
+const sendMessage = async () => {
+  if (!message.value) return
+  chatHistory.value.push('나: ' + message.value)
+
+  try {
+    const response = await axios.post('http://localhost:5000/api/chatbot', {
+      message: message.value,
+    })
+    chatHistory.value.push('챗봇: ' + response.data.response)
+  } catch (error) {
+    console.error('API 호출 오류:', error)
+  }
+
+  message.value = ''
 }
 </script>

@@ -7,18 +7,30 @@
 
 <script setup>
 import { ref } from 'vue'
+import axios from 'axios'
 
-const selectedFile = ref(null) // 사용자가 선택한 파일 저장
+const selectedFile = ref(null)
 
 const handleFileUpload = (event) => {
-  selectedFile.value = event.target.files[0] // 선택한 파일 저장
+  selectedFile.value = event.target.files[0]
 }
 
-const uploadImage = () => {
+const uploadImage = async () => {
   if (!selectedFile.value) {
-    alert('파일을 선택하세요!') // 파일이 없으면 경고창 표시
+    alert('파일을 선택하세요!')
     return
   }
-  alert(selectedFile.value.name + ' 파일이 업로드되었습니다.') // 파일 업로드 알림
+
+  const formData = new FormData()
+  formData.append('file', selectedFile.value)
+
+  try {
+    const response = await axios.post('http://localhost:5000/api/upload', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
+    alert(response.data.message)
+  } catch (error) {
+    console.error('업로드 오류:', error)
+  }
 }
 </script>
