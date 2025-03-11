@@ -28,7 +28,7 @@ const uploadImage = async () => {
 
   try {
     const response = await axios.post(
-      'https://01capstonedesign-production.up.railway.app/',
+      'https://01capstonedesign-production.up.railway.app',
       formData,
       {
         headers: { 'Content-Type': 'multipart/form-data' },
