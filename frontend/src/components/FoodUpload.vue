@@ -27,9 +27,13 @@ const uploadImage = async () => {
   formData.append('file', selectedFile.value)
 
   try {
-    const response = await axios.post('01capstonedesign-production.up.railway.app', formData, {
-      headers: { 'Content-Type': 'multipart/form-data' },
-    })
+    const response = await axios.post(
+      'https://01capstonedesign-production.up.railway.app/',
+      formData,
+      {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      },
+    )
     uploadMessage.value = response.data.message
     alert(response.data.message)
   } catch (error) {

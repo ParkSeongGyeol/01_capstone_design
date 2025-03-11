@@ -28,7 +28,7 @@ const sendMessage = async () => {
 
   try {
     // 백엔드 API 호출
-    const response = await axios.post('01capstonedesign-production.up.railway.app', {
+    const response = await axios.post('https://01capstonedesign-production.up.railway.app/', {
       message: message.value,
     })
 
