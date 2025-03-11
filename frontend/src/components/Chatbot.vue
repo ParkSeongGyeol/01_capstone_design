@@ -28,9 +28,12 @@ const sendMessage = async () => {
 
   try {
     // 백엔드 API 호출
-    const response = await axios.post('https://01capstonedesign-production.up.railway.app', {
-      message: message.value,
-    })
+    const response = await axios.post(
+      'https://01capstonedesign-production.up.railway.app/api/chatbot',
+      {
+        message: message.value,
+      },
+    )
 
     chatHistory.value.push('챗봇: ' + response.data.response)
   } catch (error) {
