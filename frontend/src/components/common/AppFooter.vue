@@ -2,17 +2,17 @@
   <div class="app-footer">
     <div class="tab-container">
       <router-link to="/home" class="tab-item" :class="{ active: activeTab === 'home' }">
-        <img src="@/assets/images/home-icon.svg" alt="홈" class="tab-icon" />
+        <img :src="homeIcon" alt="홈" class="tab-icon" />
         <span class="tab-label">홈</span>
       </router-link>
       
       <router-link to="/chatbot" class="tab-item" :class="{ active: activeTab === 'chatbot' }">
-        <img src="@/assets/images/chat-icon.svg" alt="챗봇" class="tab-icon" />
+        <img :src="chatIcon" alt="챗봇" class="tab-icon" />
         <span class="tab-label">챗봇</span>
       </router-link>
       
       <router-link to="/food" class="tab-item" :class="{ active: activeTab === 'food' }">
-        <img src="@/assets/images/food-icon.svg" alt="식단 기록" class="tab-icon" />
+        <img :src="foodIcon" alt="식단 기록" class="tab-icon" />
         <span class="tab-label">식단 기록</span>
       </router-link>
     </div>
@@ -20,6 +20,10 @@
 </template>
 
 <script setup>
+import homeIcon from '@/assets/images/home-icon.svg'
+import chatIcon from '@/assets/images/chat-icon.svg'
+import foodIcon from '@/assets/images/food-icon.svg'
+
 defineProps({
   activeTab: {
     type: String,

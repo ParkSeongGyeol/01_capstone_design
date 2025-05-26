@@ -4,7 +4,7 @@
 
     <div class="illustration-container">
       <img
-        src="/images/food-illustration.svg"
+        :src="foodIllustration"
         alt="식단 관리 일러스트레이션"
         class="food-illustration"
       />
@@ -18,6 +18,7 @@
 </template>
 
 <script setup>
+import foodIllustration from '@/assets/images/food-illustration.svg'
 // 컴포넌트 로직
 </script>
 

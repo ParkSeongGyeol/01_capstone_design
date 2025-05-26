@@ -15,7 +15,7 @@
         
         <!-- 파일 선택 영역 -->
         <div v-else class="file-select-area" @click="triggerFileInput">
-          <img src="@/assets/images/upload-icon.svg" alt="업로드" class="upload-icon" />
+          <img :src="uploadIcon" alt="업로드" class="upload-icon" />
           <p>이미지를 선택하거나 드래그하세요</p>
         </div>
         
@@ -45,6 +45,7 @@
 
 <script setup>
 import { ref, defineEmits } from 'vue';
+import uploadIcon from '@/assets/images/upload-icon.svg';
 
 const emit = defineEmits(['close', 'upload']);
 

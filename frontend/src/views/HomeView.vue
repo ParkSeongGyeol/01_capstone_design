@@ -18,11 +18,11 @@
         <h2>빠른 액세스</h2>
         <div class="quick-actions">
           <button @click="router.push('/chatbot')" class="action-button">
-            <img src="@/assets/images/chat-icon.svg" alt="챗봇" class="action-icon" />
+            <img :src="chatIcon" alt="챗봇" class="action-icon" />
             챗봇 대화
           </button>
           <button @click="router.push('/food')" class="action-button">
-            <img src="@/assets/images/food-icon.svg" alt="식단" class="action-icon" />
+            <img :src="foodIcon" alt="식단" class="action-icon" />
             식단 기록
           </button>
         </div>
@@ -38,6 +38,8 @@
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import AppFooter from '../components/common/AppFooter.vue';
+import chatIcon from '@/assets/images/chat-icon.svg'
+import foodIcon from '@/assets/images/food-icon.svg'
 
 const router = useRouter();
 const todayStats = ref({

@@ -4,7 +4,7 @@
 
     <div class="illustration-container">
       <img
-        src="/images/chat-illustration.svg"
+        :src="chatIllustration"
         alt="챗봇 일러스트레이션"
         class="chat-illustration"
       />
@@ -17,6 +17,7 @@
 </template>
 
 <script setup>
+import chatIllustration from '@/assets/images/chat-illustration.svg'
 // 컴포넌트 로직
 </script>
 

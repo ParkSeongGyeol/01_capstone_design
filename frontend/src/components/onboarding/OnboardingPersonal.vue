@@ -4,7 +4,7 @@
 
     <div class="illustration-container">
       <img
-        src="/images/personal-illustration.svg"
+        :src="personalIllustration"
         alt="맞춤형 관리 일러스트레이션"
         class="personal-illustration"
       />
@@ -18,6 +18,7 @@
 </template>
 
 <script setup>
+import personalIllustration from '@/assets/images/personal-illustration.svg'
 // 컴포넌트 로직
 </script>
 

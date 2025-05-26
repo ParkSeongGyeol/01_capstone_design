@@ -1,7 +1,7 @@
 <template>
   <div class="app-header">
     <button v-if="showBackButton" class="back-button" @click="goBack">
-      <img src="@/assets/images/back-icon.svg" alt="뒤로가기" />
+      <img :src="backIcon" alt="뒤로가기" />
     </button>
     <h1 class="header-title">{{ title }}</h1>
   </div>
@@ -9,6 +9,7 @@
 
 <script setup>
 import { useRouter } from 'vue-router';
+import backIcon from '@/assets/images/back-icon.svg';
 
 const props = defineProps({
   title: {

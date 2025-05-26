@@ -17,7 +17,7 @@
         @click="$emit('upload')"
         :disabled="loading"
       >
-        <img src="@/assets/images/camera-icon.svg" alt="이미지 업로드" class="camera-icon" />
+        <img :src="cameraIcon" alt="이미지 업로드" class="camera-icon" />
       </button>
       
       <!-- 전송 버튼 -->
@@ -26,7 +26,7 @@
         @click="sendMessage"
         :disabled="loading || !inputMessage.trim()"
       >
-        <img src="@/assets/images/send-icon.svg" alt="전송" class="send-icon" />
+        <img :src="sendIcon" alt="전송" class="send-icon" />
       </button>
     </div>
   </div>
@@ -34,6 +34,8 @@
 
 <script setup>
 import { ref, defineEmits, defineProps } from 'vue';
+import cameraIcon from '@/assets/images/camera-icon.svg'
+import sendIcon from '@/assets/images/send-icon.svg'
 
 const props = defineProps({
   loading: {

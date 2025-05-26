@@ -5,7 +5,7 @@
 
     <div class="illustration-container">
       <img
-        src="/images/welcome-illustration.svg"
+        :src="welcomeIllustration"
         alt="환영 일러스트레이션"
         class="welcome-illustration"
       />
@@ -16,6 +16,7 @@
 </template>
 
 <script setup>
+import welcomeIllustration from '@/assets/images/welcome-illustration.svg'
 // 컴포넌트 로직
 </script>
 
