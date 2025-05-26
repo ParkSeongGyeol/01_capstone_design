@@ -1,15 +1,17 @@
 <template>
   <div class="onboarding-slide welcome-slide">
     <h1 class="title">어서오세요!</h1>
-    <h2 class="subtitle">SignCare와 함께<br>간편하게 건강해져봐요.</h2>
-    
+    <h2 class="subtitle">SignCare와 함께<br />간편하게 건강해져봐요.</h2>
+
     <div class="illustration-container">
-      <img src="@/assets/images/welcome-illustration.svg" alt="환영 일러스트레이션" class="welcome-illustration" />
+      <img
+        src="/images/welcome-illustration.svg"
+        alt="환영 일러스트레이션"
+        class="welcome-illustration"
+      />
     </div>
-    
-    <p class="description">
-      당신의 건강한 하루를 함께 만들어가요!
-    </p>
+
+    <p class="description">당신의 건강한 하루를 함께 만들어가요!</p>
   </div>
 </template>
 
@@ -32,7 +34,7 @@
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  color: #3CB489;
+  color: #3cb489;
 }
 
 .subtitle {

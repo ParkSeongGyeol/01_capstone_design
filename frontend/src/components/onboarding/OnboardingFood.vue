@@ -1,14 +1,18 @@
 <template>
   <div class="onboarding-slide food-slide">
     <h1 class="title">건강한 식단 관리</h1>
-    
+
     <div class="illustration-container">
-      <img src="@/assets/images/food-illustration.svg" alt="식단 관리 일러스트레이션" class="food-illustration" />
+      <img
+        src="/images/food-illustration.svg"
+        alt="식단 관리 일러스트레이션"
+        class="food-illustration"
+      />
     </div>
-    
+
     <p class="description">
-      AI가 업로드한 식사 사진을 자동으로 분석해 영양 정보를 알려주고,
-      당뇨 관리에 적합한 식단인지 판단해 드립니다.
+      AI가 업로드한 식사 사진을 자동으로 분석해 영양 정보를 알려주고, 당뇨 관리에 적합한 식단인지
+      판단해 드립니다.
     </p>
   </div>
 </template>
@@ -32,7 +36,7 @@
   font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 2rem;
-  color: #3CB489;
+  color: #3cb489;
   line-height: 1.3;
 }
 
