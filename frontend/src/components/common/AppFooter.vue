@@ -5,12 +5,12 @@
         <img :src="homeIcon" alt="홈" class="tab-icon" />
         <span class="tab-label">홈</span>
       </router-link>
-      
+
       <router-link to="/chatbot" class="tab-item" :class="{ active: activeTab === 'chatbot' }">
         <img :src="chatIcon" alt="챗봇" class="tab-icon" />
         <span class="tab-label">챗봇</span>
       </router-link>
-      
+
       <router-link to="/food" class="tab-item" :class="{ active: activeTab === 'food' }">
         <img :src="foodIcon" alt="식단 기록" class="tab-icon" />
         <span class="tab-label">식단 기록</span>
@@ -27,9 +27,9 @@ import foodIcon from '@/assets/images/food-icon.svg'
 defineProps({
   activeTab: {
     type: String,
-    required: true
-  }
-});
+    required: true,
+  },
+})
 </script>
 
 <style scoped>
@@ -55,7 +55,7 @@ defineProps({
 }
 
 .tab-item.active {
-  color: #3CB489;
+  color: #3cb489;
 }
 
 .tab-icon {

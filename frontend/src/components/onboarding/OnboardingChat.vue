@@ -3,11 +3,7 @@
     <h1 class="title">자연스러운 대화로 건강관리</h1>
 
     <div class="illustration-container">
-      <img
-        :src="chatIllustration"
-        alt="챗봇 일러스트레이션"
-        class="chat-illustration"
-      />
+      <img :src="chatIllustration" alt="챗봇 일러스트레이션" class="chat-illustration" />
     </div>
 
     <p class="description">

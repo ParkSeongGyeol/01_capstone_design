@@ -2,30 +2,22 @@
   <div class="chat-input-container">
     <div class="input-wrapper">
       <!-- 메시지 입력 필드 -->
-      <input 
-        type="text" 
-        v-model="inputMessage" 
-        placeholder="메시지를 입력하세요..." 
+      <input
+        type="text"
+        v-model="inputMessage"
+        placeholder="메시지를 입력하세요..."
         @keyup.enter="sendMessage"
         :disabled="loading"
         class="message-input"
       />
-      
+
       <!-- 이미지 업로드 버튼 -->
-      <button 
-        class="upload-button"
-        @click="$emit('upload')"
-        :disabled="loading"
-      >
+      <button class="upload-button" @click="$emit('upload')" :disabled="loading">
         <img :src="cameraIcon" alt="이미지 업로드" class="camera-icon" />
       </button>
-      
+
       <!-- 전송 버튼 -->
-      <button 
-        class="send-button"
-        @click="sendMessage"
-        :disabled="loading || !inputMessage.trim()"
-      >
+      <button class="send-button" @click="sendMessage" :disabled="loading || !inputMessage.trim()">
         <img :src="sendIcon" alt="전송" class="send-icon" />
       </button>
     </div>
@@ -33,42 +25,45 @@
 </template>
 
 <script setup>
-import { ref, defineEmits, defineProps } from 'vue';
+import { ref, defineEmits, defineProps } from 'vue'
 import cameraIcon from '@/assets/images/camera-icon.svg'
 import sendIcon from '@/assets/images/send-icon.svg'
 
 const props = defineProps({
   loading: {
     type: Boolean,
-    default: false
+    default: false,
   },
   modelValue: {
     type: String,
-    default: ''
-  }
-});
+    default: '',
+  },
+})
 
-const emit = defineEmits(['update:modelValue', 'send', 'upload']);
+const emit = defineEmits(['update:modelValue', 'send', 'upload'])
 
 // 양방향 바인딩 구현
-const inputMessage = ref(props.modelValue);
+const inputMessage = ref(props.modelValue)
 
 // 모델 값이 변경될 때 입력 필드 업데이트
-watch(() => props.modelValue, (newValue) => {
-  inputMessage.value = newValue;
-});
+watch(
+  () => props.modelValue,
+  (newValue) => {
+    inputMessage.value = newValue
+  },
+)
 
 // 입력 필드가 변경될 때 모델 값 업데이트
 watch(inputMessage, (newValue) => {
-  emit('update:modelValue', newValue);
-});
+  emit('update:modelValue', newValue)
+})
 
 // 메시지 전송 함수
 const sendMessage = () => {
   if (inputMessage.value.trim() && !props.loading) {
-    emit('send');
+    emit('send')
   }
-};
+}
 </script>
 
 <style scoped>
@@ -120,6 +115,6 @@ const sendMessage = () => {
 }
 
 .send-icon {
-  color: #3CB489;
+  color: #3cb489;
 }
 </style>

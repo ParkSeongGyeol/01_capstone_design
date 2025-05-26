@@ -3,7 +3,7 @@
     <div class="uploader-overlay" @click="closeUploader"></div>
     <div class="uploader-container">
       <h2 class="uploader-title">식단 이미지 업로드</h2>
-      
+
       <div class="uploader-content">
         <!-- 이미지 미리보기 -->
         <div v-if="previewUrl" class="image-preview">
@@ -12,83 +12,77 @@
             <span>×</span>
           </button>
         </div>
-        
+
         <!-- 파일 선택 영역 -->
         <div v-else class="file-select-area" @click="triggerFileInput">
           <img :src="uploadIcon" alt="업로드" class="upload-icon" />
           <p>이미지를 선택하거나 드래그하세요</p>
         </div>
-        
+
         <!-- 숨겨진 파일 입력 -->
-        <input 
-          type="file" 
-          ref="fileInput" 
-          accept="image/*" 
-          @change="handleFileChange" 
+        <input
+          type="file"
+          ref="fileInput"
+          accept="image/*"
+          @change="handleFileChange"
           class="hidden-file-input"
         />
       </div>
-      
+
       <div class="uploader-actions">
         <button class="cancel-button" @click="closeUploader">취소</button>
-        <button 
-          class="upload-button" 
-          :disabled="!selectedFile" 
-          @click="uploadImage"
-        >
-          업로드
-        </button>
+        <button class="upload-button" :disabled="!selectedFile" @click="uploadImage">업로드</button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, defineEmits } from 'vue';
-import uploadIcon from '@/assets/images/upload-icon.svg';
+import { ref, defineEmits } from 'vue'
+import uploadIcon from '@/assets/images/upload-icon.svg'
 
-const emit = defineEmits(['close', 'upload']);
+const emit = defineEmits(['close', 'upload'])
 
-const fileInput = ref(null);
-const selectedFile = ref(null);
-const previewUrl = ref(null);
+const fileInput = ref(null)
+const selectedFile = ref(null)
+const previewUrl = ref(null)
 
 // 파일 입력 트리거
 const triggerFileInput = () => {
-  fileInput.value.click();
-};
+  fileInput.value.click()
+}
 
 // 파일 변경 처리
 const handleFileChange = (event) => {
-  const file = event.target.files[0];
+  const file = event.target.files[0]
   if (file && file.type.startsWith('image/')) {
-    selectedFile.value = file;
-    previewUrl.value = URL.createObjectURL(file);
+    selectedFile.value = file
+    previewUrl.value = URL.createObjectURL(file)
   }
-};
+}
 
 // 이미지 제거
 const removeImage = () => {
-  selectedFile.value = null;
+  selectedFile.value = null
   if (previewUrl.value) {
-    URL.revokeObjectURL(previewUrl.value);
-    previewUrl.value = null;
+    URL.revokeObjectURL(previewUrl.value)
+    previewUrl.value = null
   }
-  fileInput.value.value = '';
-};
+  fileInput.value.value = ''
+}
 
 // 업로더 닫기
 const closeUploader = () => {
-  removeImage();
-  emit('close');
-};
+  removeImage()
+  emit('close')
+}
 
 // 이미지 업로드
 const uploadImage = () => {
   if (selectedFile.value) {
-    emit('upload', selectedFile.value);
+    emit('upload', selectedFile.value)
   }
-};
+}
 </script>
 
 <style scoped>
@@ -129,7 +123,7 @@ const uploadImage = () => {
   font-weight: bold;
   margin-bottom: 20px;
   text-align: center;
-  color: #3CB489;
+  color: #3cb489;
 }
 
 .uploader-content {
@@ -146,7 +140,7 @@ const uploadImage = () => {
 }
 
 .file-select-area:hover {
-  border-color: #3CB489;
+  border-color: #3cb489;
 }
 
 .upload-icon {
@@ -210,7 +204,7 @@ const uploadImage = () => {
 }
 
 .upload-button {
-  background-color: #3CB489;
+  background-color: #3cb489;
   color: white;
 }
 

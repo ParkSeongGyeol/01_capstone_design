@@ -3,11 +3,7 @@
     <h1 class="title">건강한 식단 관리</h1>
 
     <div class="illustration-container">
-      <img
-        :src="foodIllustration"
-        alt="식단 관리 일러스트레이션"
-        class="food-illustration"
-      />
+      <img :src="foodIllustration" alt="식단 관리 일러스트레이션" class="food-illustration" />
     </div>
 
     <p class="description">

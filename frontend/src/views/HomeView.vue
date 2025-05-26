@@ -4,7 +4,7 @@
     <div class="home-header">
       <h1>SignCare</h1>
     </div>
-    
+
     <!-- 메인 콘텐츠 -->
     <div class="home-content">
       <div class="card">
@@ -13,7 +13,7 @@
         <p>혈당 측정: {{ todayStats.glucoseRecorded ? '완료' : '미완료' }}</p>
         <p>운동 기록: {{ todayStats.exerciseRecorded ? '완료' : '미완료' }}</p>
       </div>
-      
+
       <div class="card">
         <h2>빠른 액세스</h2>
         <div class="quick-actions">
@@ -28,41 +28,41 @@
         </div>
       </div>
     </div>
-    
+
     <!-- 푸터 (탭 네비게이션) -->
     <AppFooter :activeTab="'home'" />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-import AppFooter from '../components/common/AppFooter.vue';
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import AppFooter from '../components/common/AppFooter.vue'
 import chatIcon from '@/assets/images/chat-icon.svg'
 import foodIcon from '@/assets/images/food-icon.svg'
 
-const router = useRouter();
+const router = useRouter()
 const todayStats = ref({
   foodRecorded: false,
   glucoseRecorded: false,
-  exerciseRecorded: false
-});
+  exerciseRecorded: false,
+})
 
 // 컴포넌트 마운트 시 온보딩 체크
 onMounted(() => {
-  const onboardingCompleted = localStorage.getItem('onboardingCompleted');
+  const onboardingCompleted = localStorage.getItem('onboardingCompleted')
   if (!onboardingCompleted) {
-    router.push('/onboarding');
+    router.push('/onboarding')
   }
-  
+
   // 실제 구현에서는 API에서 오늘의 상태 데이터 로드
   // 프로토타입에서는 더미 데이터 사용
   todayStats.value = {
     foodRecorded: true,
     glucoseRecorded: false,
-    exerciseRecorded: true
-  };
-});
+    exerciseRecorded: true,
+  }
+})
 </script>
 
 <style scoped>
@@ -73,7 +73,7 @@ onMounted(() => {
 }
 
 .home-header {
-  background-color: #3CB489;
+  background-color: #3cb489;
   color: white;
   padding: 16px;
   text-align: center;

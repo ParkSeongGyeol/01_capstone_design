@@ -8,25 +8,25 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
-import backIcon from '@/assets/images/back-icon.svg';
+import { useRouter } from 'vue-router'
+import backIcon from '@/assets/images/back-icon.svg'
 
 const props = defineProps({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   showBackButton: {
     type: Boolean,
-    default: false
-  }
-});
+    default: false,
+  },
+})
 
-const router = useRouter();
+const router = useRouter()
 
 const goBack = () => {
-  router.go(-1);
-};
+  router.go(-1)
+}
 </script>
 
 <style scoped>
@@ -34,7 +34,7 @@ const goBack = () => {
   display: flex;
   align-items: center;
   padding: 16px;
-  background-color: #3CB489;
+  background-color: #3cb489;
   color: white;
 }
 
